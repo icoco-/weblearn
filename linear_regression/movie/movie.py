@@ -16,15 +16,17 @@ def get_data(file_name):
     flash_y_parameter = []
     arrow_x_parameter = []
     arrow_y_parameter = []
-    for x1, y1, x2, y2 in zip(data['flash_episode_number'], data['flash_us_viewers'], data['arrow_episode_number'], data['arrow_us_viewers']):
+    for x1, y1, x2, y2 in zip(data['flash_episode_number'], data['flash_us_viewers'], data['arrow_episode_number'],
+                              data['arrow_us_viewers']):
         flash_x_parameter.append([float(x1)])
         flash_y_parameter.append(float(y1))
         arrow_x_parameter.append([float(x2)])
         arrow_y_parameter.append(float(y2))
-    return flash_x_parameter,flash_y_parameter,arrow_x_parameter,arrow_y_parameter
+    return flash_x_parameter, flash_y_parameter, arrow_x_parameter, arrow_y_parameter
+
 
 # Function to know which Tv show will have more viewers
-def more_viewers(x1,y1,x2,y2):
+def more_viewers(x1, y1, x2, y2):
     regr1 = linear_model.LinearRegression()
     regr1.fit(x1, y1)
     predicted_value1 = regr1.predict(9)
@@ -38,6 +40,7 @@ def more_viewers(x1,y1,x2,y2):
         print "The Flash Tv Show will have more viewers for next week"
     else:
         print "Arrow Tv Show will have more viewers for next week"
+
 
 x1, y1, x2, y2 = get_data('input_data.csv')
 # print x1,y1,x2,y2
