@@ -23,14 +23,14 @@ def linear_model_main(x_parameters, y_parameters, p_value):
     regression = linear_model.LinearRegression()
     regression.fit(x_parameters, y_parameters)
     predict_outcome = regression.predict(p_value)
-    predictions = {}
+    predictions = dict()
     predictions['intercept'] = regression.intercept_
     predictions['coefficient'] = regression.coef_
     predictions['predicted_value'] = predict_outcome
     return predictions
 
 
-# Function to show the resutls of linear fit model
+# Function to show the results of linear fit model
 def show_linear_line(X_parameters, Y_parameters):
     # Create linear regression object
     regr = linear_model.LinearRegression()
